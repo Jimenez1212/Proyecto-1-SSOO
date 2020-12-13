@@ -1,11 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-#define binL (hexa[0] & 0b0000011000) >> 3;
-#define binP (hexa[0] & 0b0000000111);
-#define binE hexa[0] >> 5;
-#define binB hexa[0] >> 3;
-
 typedef struct {
     short int ETQ;
     short int Datos[8];
@@ -15,13 +10,15 @@ T_LINEA_CACHE cache[4];
 int tiempoglobal = 0;
 int numfallos = 0;
 
+//Variables de las direcciones
 unsigned int hexa[12];
-short int lin;
-short int etq;
-short int bloq;
-short int plbr;
+short int lin = (hexa[0] & 0b0000011000) >> 3;
+short int etq = (hexa[0] & 0b0000000111);
+short int bloq = hexa[0] >> 5;
+short int plbr = hexa[0] >> 3;
 char texto[100];
 
+//Funcion Main
 void main()
 {
     InicioCache();
@@ -29,6 +26,7 @@ void main()
     ArchivoMemoria();
 }
 
+//Funcion lectura archivo "RAM.bin"
 void ArchivoRAM() {
     unsigned char RAM[1024];
     FILE* f_ram;
@@ -52,10 +50,7 @@ void ArchivoMemoria() {
     }
 
     fscanf(f_memo, "%x", &hexa[0]);
-    lin = binL;
-    etq = binE;
-    bloq = binB;
-    plbr = binP;
+
     printf("Linea %d\n", lin);
     printf("Etiqueta %d\n", etq);
     printf("Bloque %d\n", bloq);
