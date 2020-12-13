@@ -12,10 +12,10 @@ int numfallos = 0;
 
 //Variables de las direcciones
 unsigned int hexa[12];
-short int lin = (hexa[0] & 0b0000011000) >> 3;
-short int etq = (hexa[0] & 0b0000000111);
-short int bloq = hexa[0] >> 5;
-short int plbr = hexa[0] >> 3;
+short int lin;
+short int etq;
+short int bloq;
+short int plbr;
 char texto[100];
 
 //Funcion Main
@@ -50,7 +50,10 @@ void ArchivoMemoria() {
     }
 
     fscanf(f_memo, "%x", &hexa[0]);
-
+    lin = (hexa[0] & 0b0000011000) >> 3;
+    etq = (hexa[0] & 0b0000000111);
+    bloq = hexa[0] >> 5;
+    plbr = hexa[0] >> 3;
     printf("Linea %d\n", lin);
     printf("Etiqueta %d\n", etq);
     printf("Bloque %d\n", bloq);
