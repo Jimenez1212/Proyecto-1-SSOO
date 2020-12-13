@@ -1,10 +1,10 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-#define binL = (hexa[0] & 0b0000011000) >> 3;
-#define binP = (hexa[0] & 0b0000000111);
-#define binE = hexa[0] >> 5;
-#define binB = hexa[0] >> 3;
+#define binL (hexa[0] & 0b0000011000) >> 3;
+#define binP (hexa[0] & 0b0000000111);
+#define binE hexa[0] >> 5;
+#define binB hexa[0] >> 3;
 
 typedef struct {
     short int ETQ;
