@@ -1,6 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
-
+//Structs
 typedef struct {
     short int ETQ;
     short int Datos[8];
@@ -40,7 +40,7 @@ void ArchivoRAM() {
     fclose(f_ram);
 }
 
-//Método para leer y descomponer los números hexadecimales
+//Funcion lectura archivo "accesos_memoria.txt"
 void ArchivoMemoria() {
     FILE *f_memo;
     f_memo = fopen("accesos_memoria.txt", "r");
@@ -54,11 +54,11 @@ void ArchivoMemoria() {
     etq = (hexa[0] & 0b0000000111);
     bloq = hexa[0] >> 5;
     plbr = hexa[0] >> 3;
+    //Direcciones
     printf("Linea %d\n", lin);
     printf("Etiqueta %d\n", etq);
     printf("Bloque %d\n", bloq);
     printf("Palabra %d\n", plbr);
-
 
     if (cache[0].ETQ == etq) {
         printf("T: %d, Acierto de CACHE, ADDR %04X ETQ %X linea %02X palabra %02X DATO %02X", tiempoglobal, hexa[0], etq, lin, plbr, tiempoglobal);
@@ -70,10 +70,9 @@ void ArchivoMemoria() {
         tiempoglobal += 10;
 
     }
-
     fclose(f_memo);
 }
-
+// Funcion inicializar todos los campos de la cache
 void InicioCache() {
     for (int i = 0; i < 4; i++) {
         cache[i].ETQ = 0xFF;
