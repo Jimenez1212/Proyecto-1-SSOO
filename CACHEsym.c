@@ -15,7 +15,7 @@ T_LINEA_CACHE cache[4];
 int tiempoglobal = 0;
 int numfallos = 0;
 
-unsigned int hexNum[12];
+unsigned int hexa[12];
 short int linea;
 short int bloque;
 short int etiqueta;
