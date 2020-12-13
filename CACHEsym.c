@@ -17,9 +17,10 @@ int numfallos = 0;
 
 unsigned int hexa[12];
 short int linea;
-short int bloque;
 short int etiqueta;
+short int bloque;
 short int palabra;
+char texto[100];
 
 void main()
 {
