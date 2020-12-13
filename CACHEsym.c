@@ -16,10 +16,10 @@ int tiempoglobal = 0;
 int numfallos = 0;
 
 unsigned int hexa[12];
-short int linea;
-short int etiqueta;
-short int bloque;
-short int palabra;
+short int lin;
+short int etq;
+short int bloq;
+short int plbr;
 char texto[100];
 
 void main()
